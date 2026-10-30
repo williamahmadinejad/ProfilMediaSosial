@@ -1,4 +1,3 @@
-
 package com.example.profilemediasosial;
 
 import android.os.Bundle;
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         // Tombol Share
         btnShare.setOnClickListener(v -> {
             Toast.makeText(
-                    this,
+                    v.getContext(),
                     "Share Profile",
                     Toast.LENGTH_SHORT
             ).show();
@@ -116,8 +115,8 @@ public class MainActivity extends AppCompatActivity {
         };
 
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(
-                        this,
+                new ArrayAdapter<String>(
+                        getApplicationContext(),
                         android.R.layout.simple_spinner_item,
                         countries
                 );
@@ -151,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             showProfile();
 
             Toast.makeText(
-                    this,
+                    v.getContext(),
                     "Profile berhasil diperbarui",
                     Toast.LENGTH_SHORT
             ).show();
@@ -223,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
 
     // KEMBALI KE HALAMAN PROFILE
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() {super.onBackPressed();
 
         showProfile();
 
